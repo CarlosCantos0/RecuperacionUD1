@@ -32,6 +32,7 @@ public class MapasApiCliente {
                     Mapas.setUuid(mapaJson.getString("uuid"));
                     Mapas.setLv_mapIcon(mapaJson.getString("listViewIcon"));
                     Mapas.setMapImage(mapaJson.getString("displayIcon"));
+                    Mapas.setMaxmapimage(mapaJson.getString("splash"));
 
                     lista = String.valueOf(Mapas);
                     Log.i("RESULTADOS: " ,lista);
@@ -42,7 +43,6 @@ public class MapasApiCliente {
                 }
             }
 
-            //System.out.println(listaMapas);
             return listaMapas;
 
         } catch (IOException | JSONException e) {

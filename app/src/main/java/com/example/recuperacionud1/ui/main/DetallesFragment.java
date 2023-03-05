@@ -1,5 +1,7 @@
 package com.example.recuperacionud1.ui.main;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -41,11 +43,24 @@ public class DetallesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main2, container, false);
+        View view = inflater.inflate(R.layout.fragment_mapas_coordenadas, container, false);
 
         uuidDetail = view.findViewById(R.id.txtUuidDetalle);
         coordDetail = view.findViewById(R.id.txtCoordenadasDetalle);
         imageDetail = view.findViewById(R.id.imgMapaDetalle);
+
+        imageDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fragment_splash = new fragmentSplash();
+
+                fragmentTransaction.replace(R.id.container, fragment_splash);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         Intent intent = getActivity().getIntent();
 
@@ -65,7 +80,6 @@ public class DetallesFragment extends Fragment {
         coordDetail.setText(mapa.getCoordinates());
         uuidDetail.setText(mapa.getUuid());
         Glide.with(getContext()).load("" + mapa.getMapImage()).into(imageDetail);
-
     }
 
 }

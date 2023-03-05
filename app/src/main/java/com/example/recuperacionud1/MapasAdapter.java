@@ -1,6 +1,8 @@
 package com.example.recuperacionud1;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,15 +30,18 @@ public class MapasAdapter extends ArrayAdapter<Mapa> {
 
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.lv_mps_row, parent, false);
+            convertView = inflater.inflate(R.layout.fragment_first, parent, false);
         }
 
         TextView name = convertView.findViewById(R.id.txtMapaRow);
-        //TextView uuid = convertView.findViewById(R.id.txtUuid);
+        name.setTextColor(Color.RED);
         ImageView imageMap = convertView.findViewById(R.id.imgMap);
 
+        Typeface typeface = Typeface.create("sans-serif-medium", Typeface.BOLD);
+        name.setTypeface(typeface);
+
+
         name.setText(mapa.getName());
-        //uuid.setText(mapa.getUuid());
         Glide.with(getContext()).load("" + mapa.getLv_mapIcon()).into(imageMap);
 
         return convertView;

@@ -17,7 +17,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.recuperacionud1.Detalles;
@@ -27,7 +26,6 @@ import com.example.recuperacionud1.MapasApiCliente;
 import com.example.recuperacionud1.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -52,14 +50,14 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+       View view = inflater.inflate(R.layout.first_mapaslv, container, false);
 
 
-        items = new ArrayList<>();
+       items = new ArrayList<>();
 
        adapter = new MapasAdapter(
                 getContext(),
-                R.layout.lv_mps_row,
+                R.layout.fragment_first,
                 R.id.txtMapaRow,
                 items
         );
@@ -99,14 +97,6 @@ public class MainFragment extends Fragment {
                     adapter.add(mapa);
                 }
             });
-
-
-            //Log.i( "", String.valueOf(mapas));
-
-
-
-
-
         });
     }
 

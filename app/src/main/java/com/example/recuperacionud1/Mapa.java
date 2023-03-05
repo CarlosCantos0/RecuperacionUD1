@@ -9,6 +9,7 @@ public class Mapa implements Serializable {
     private String lv_mapIcon;
     private String mapImage;
     private String uuid;
+    private String maxmapimage;
 
     public String getName() {
         return name;
@@ -50,6 +51,14 @@ public class Mapa implements Serializable {
         this.uuid = uuid;
     }
 
+    public String getMaxmapimage() {
+        return maxmapimage;
+    }
+
+    public void setMaxmapimage(String maxmapimage) {
+        this.maxmapimage = maxmapimage;
+    }
+
     @Override
     public String toString() {
         return "ValorantMaps{" +
@@ -57,7 +66,8 @@ public class Mapa implements Serializable {
                 ", coordinates='" + coordinates + '\'' +
                 ", lv_mapIcon='" + lv_mapIcon + '\'' +
                 ", mapImage='" + mapImage + '\'' +
-                ", detailsURL='" + uuid + '\'' +
+                ", detailsUuid='" + uuid + '\'' +
+                ", MaxMapimage='" + maxmapimage + '\'' +
                 '}';
     }
 }
